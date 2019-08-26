@@ -1,0 +1,191 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<style>
+body{
+	background-color: grey;
+	font-family: 'Roboto';
+}
+.container{
+	margin: 0 auto;
+	width: 35.6vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#top-container{
+	height: 7.6vw;
+	background-color: #37AAFF;
+}
+#logo{
+	background-color: white;
+	width: 5.6vw;
+	height: 5.6vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+#title{
+	background-color: white;
+	margin-left: 0.694vw;
+	font-size: 1.53vw;
+	text-align: left;
+	vertical-align: middle;
+	height: 5.6vw;
+	width: 20.8vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+p{
+	margin-left: 0.2vw;
+	line-height: 1vw;
+}
+#subject{
+	font-size: 0.97vw;
+	margin-bottom: -1.3vw;
+}
+#nav{
+	margin-left: 0.694vw;
+	font-size: 1.39vw;
+}
+#home{
+	background-color: white;
+	width: 5.6vw;
+	line-height: 2.43vw;
+	text-align: center;
+	vertical-align: middle;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);	
+}
+#logout{
+	background-color: white;
+	width: 5.6vw;
+	line-height: 2.43vw;
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 0.694vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+img{
+	margin-left: 9.5%;
+	top: 7.5%;
+	position: relative;
+	height: 85%;
+	width: 85%;
+}
+#middle{
+	height: 2.78vw;
+	background-color: 8DCEFF;
+}
+#bottom{
+	background-color: C7E7FF;
+}
+.navigation{
+	background-color: white;
+	line-height: 2.08vw;
+	width: 6.39vw;
+	margin: 0.1735vw;
+	font-size: 0.972vw;
+	text-align: center;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+table{
+	background-color: white;
+	margin: 1.04vw;
+	text-align: left;
+	width: 33.33vw;
+	font-size: 0.83vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+#table-header{
+	background-color: #37AAFF;
+	color: white;
+}
+</style>
+
+<body>
+
+<div class="container" id="top-container">
+	<a href="manager.html">
+		<div id="logo" tabindex="0">
+			<img src="princeLogo.jpg"></img>
+		</div>
+	</a>
+	<div id="title">
+		<a href="transactions.html">
+			<p id="subject" tabindex="1">Transactions</p>
+		</a>
+		<p>Customer Transaction History</p>
+	</div>
+	<div id="nav">
+		<a href="manager.html">
+			<div id="home" tabindex="2">
+				Home
+			</div>
+		</a>
+		<a href="home.html">
+			<div id="logout" tabindex="3">
+				Log Out
+			</div>
+		</a>
+	</div>
+</div>
+
+<div class="container" id="middle">
+	<a href="employees.html">
+		<div class="navigation" tabindex="4">
+			Employees
+		</div>
+	</a>
+	<a href="products.html">
+		<div class="navigation" tabindex="5">
+			Products
+		</div>
+	</a>
+	<a href="customers.html">
+		<div class="navigation" tabindex="6">
+			Customers
+		</div>
+	</a>
+	<a href="aisles.html">
+		<div class="navigation" tabindex="7">
+			Aisles
+		</div>
+	</a>
+	<a href="suppliers.html">
+		<div class="navigation" tabindex="8">
+			Suppliers
+		</div>
+	</a>
+</div>
+
+<div class="container" id="bottom">
+	<table>
+		<tr id="table-header">
+			<td>Date</td>
+			<td>Transaction</td>
+			<td>Customer</td>
+		</tr>
+		<tr>
+			<td>15 August 2018</td>
+			<td>1</td>
+			<td>brandi100@zmail.com</td>
+		</tr>
+		<tr>
+			<td>16 August 2018</td>
+			<td>2</td>
+			<td>ncarter88@amail.com</td>
+		</tr>
+		<tr>
+			<td>17 August 2018</td>
+			<td>3</td>
+			<td>zbro420@zmail.com</td>
+		</tr>
+		<tr>
+			<td>17 August 2018</td>
+			<td>4</td>
+			<td>dishwasher1@amail.com</td>
+		</tr>
+		<tr>
+			<td>19 August 2018</td>
+			<td>5</td>
+			<td>danisaur@zmail.com</td>
+		</tr>
+	</table>
+</div>
+
+</body>

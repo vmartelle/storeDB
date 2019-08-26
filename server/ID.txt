@@ -1,0 +1,5 @@
+Team: Team 3
+
+Database: PrinceDB
+
+Members: Mohammed Chaghlil, Victor Martelle, Samy Masadi

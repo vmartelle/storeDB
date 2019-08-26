@@ -1,0 +1,122 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<style>
+body{
+	background-color: lightgrey;
+	font-family: 'Roboto';
+	font-size: 2.08vw;
+}
+#top{
+	margin: 0 auto;
+	width: 32.45vw;
+	height: 10.42vw;
+	background-color: #37AAFF;
+}
+#bottom{
+	margin: 0 auto;
+	width: 32.45vw;
+	height: 16.32vw;
+	background-color: #8DCEFF;
+}
+#inner-top{
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	top: 10%;
+	position: relative;
+	width: 30.35vw;
+	height: 8.33vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+	text-align: center;
+}
+#inner-bottom{
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	top: 6.5%;
+	position: relative;
+	width: 30.35vw;
+	height: 14.24vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+img{
+	height: 72.5%;
+	width: 89.29%;
+	margin-top: 3.5%;
+}
+form{
+	text-align: right;
+	display: flex;
+	//align-items: center;
+	//justify-content: center;
+	line-height: 2.22vw;
+	padding-top: 2vw;
+	padding-right: 2.22vw;
+}
+.text-field{
+	background-color: lightgrey;
+	height: 2.22vw;
+	//line-height: 1.7vw;
+	width: 15.97vw;
+	font-size: 2.08vw;
+}
+#left-form{
+	padding-left: 2.22vw;
+}
+#username{
+	margin-bottom: 1.5vw;
+}
+#user-field{
+	margin-bottom: 1.5vw
+}
+#signup-login-div{
+	display: flex;
+	align-items: right;
+	justify-content: right;
+	margin-right: 2.22vw;
+	margin-top: -0.45vw;
+}
+.become-inline{
+	padding: 0.278vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+#signup{
+	background-color: C7E7FF;
+	margin-right: 2.1vw;
+}
+#login{
+	background-color: #8DCEFF;
+}
+</style>
+
+<body>
+
+<div id="top">
+	<div id="inner-top">
+	<img src="princeLogoLong.jpg"></img>
+	</div>
+</div>
+
+<div id="bottom">
+	<div id="inner-bottom">
+		<form>
+			<div id="left-form">
+				<div id="username">Username</div>
+				<div id="password">Password</div>
+			</div>
+			<div id="right-form">
+				<input class="text-field" id="user-field" tabindex="0">
+				<input class="text-field" type="password" tabindex="1">
+			</div>
+		</form>
+		<div id="signup-login-div">
+			<a href="register.html">
+				<div class="become-inline" id="signup" tabindex="3">Sign Up</div>
+			</a>
+			<a href="manager.html">
+				<div class="become-inline" id="login" tabindex="2">Log In</div>
+			</a> 
+	    </div>
+	</div>
+</div>
+
+</body>

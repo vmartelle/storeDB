@@ -1,0 +1,132 @@
+<style>
+body{
+	background-color: lightgrey;
+	margin-left: 33vw;
+}
+.wrapper {
+	width: 500px;
+	height: 110px;
+	background-color: #37AAFF;
+	display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 50px 50px;
+}
+.box {
+	margin: 10px 10px 10px 10px;
+    background-color: white;
+    padding-top: 0px; 
+    padding-left: 22px; 
+    padding-right: 22px; 
+    padding-bottom: 22px;
+    font-size: 150%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+}
+.p {
+	width: 40px;
+	margin-left: 30px;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+}
+.information {
+	width: 200px;
+	margin-left: 15px;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+ }
+.home {
+	width: 50px;
+	margin-left: 160px;
+	padding-bottom: 40px;
+    grid-column: 3;
+    grid-row: 1 / span 1;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+}
+.logout {
+	width: 50px;
+	margin-left: 160px;
+	margin-top: 0px;
+    grid-column: 3;
+    grid-row: 2 / span 1;	
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+}
+#middle{
+	background-color: #8DCEFF;
+	width: 500px;
+	height: 30px;
+	text-align: center;
+}
+.inline-middle{
+	margin-top: 5px;
+	margin-left: 7px;
+	display: inline-block;
+	background-color: white;
+	width: 80px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+}
+#bottom{
+	background-color: #C7E7FF;
+	height: 100px;
+	width: 460px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 25px;
+}
+#bottom-top{
+	background-color: #37AAFF;
+	margin-left: 15px;
+	width: 446px;
+	bottom: 50px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+	font-size: 14px;
+}
+.inline-bottom{
+	display: inline-block;
+	margin-left: 37px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#bottom-bottom{
+	background-color: white;
+	margin-top: 10px;
+	margin-left: 15px;
+	width: 446px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, .2);
+	text-align: center;
+}
+</style>
+
+<body>
+<div class="wrapper">
+  <div class="box p">p</div>
+  <div class="box information">Employees Information</div>
+  <div class="box home">Home</div>
+  <div class="box logout">Logout</div>
+</div>
+
+<div id="middle">
+	<div class="inline-middle">Customers</div>
+	<div class="inline-middle">Products</div>
+	<div class="inline-middle">Transactions</div>
+	<div class="inline-middle">Aisles</div>
+	<div class="inline-middle">Suppliers</div>
+</div>
+
+<div id="bottom">
+	<div id="bottom-top">
+		<div class="inline-bottom" id="name">Name</div>
+		<div class="inline-bottom" id="gender">Gender</div>
+		<div class="inline-bottom" id="start-date">Start Date</div>
+		<div class="inline-bottom" id="address">Address</div>
+		<div class="inline-bottom" id="manager">Manager</div>
+	</div>
+	<div id="bottom-bottom">
+		<div> Victor Martelle      M 1/1/2019 50 lane st, Providence, RI </div>
+		<div> Victor Martelle M 1/1/2019 50 lane st, Providence, RI </div>
+		<div> Victor Martelle M 1/1/2019 50 lane st, Providence, RI </div>
+	</div>
+</div>
+
+</body>

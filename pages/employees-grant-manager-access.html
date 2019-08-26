@@ -1,0 +1,179 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<style>
+body{
+	background-color: grey;
+	font-family: 'Roboto';
+}
+.container{
+	margin: 0 auto;
+	width: 35.6vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#top-container{
+	height: 7.6vw;
+	background-color: #37AAFF;
+}
+#logo{
+	background-color: white;
+	width: 5.6vw;
+	height: 5.6vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+#title{
+	background-color: white;
+	margin-left: 0.694vw;
+	font-size: 1.94vw;
+	text-align: left;
+	vertical-align: middle;
+	height: 5.6vw;
+	width: 20.8vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+p{
+	margin-left: 0.5vw;
+	line-height: 1vw;
+}
+#subject{
+	font-size: 0.97vw;
+	margin-bottom: -1.5vw;
+}
+#nav{
+	margin-left: 0.694vw;
+	font-size: 1.39vw;
+}
+#home{
+	background-color: white;
+	width: 5.6vw;
+	line-height: 2.43vw;
+	text-align: center;
+	vertical-align: middle;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);	
+}
+#logout{
+	background-color: white;
+	width: 5.6vw;
+	line-height: 2.43vw;
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 0.694vw;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+img{
+	margin-left: 9.5%;
+	top: 7.5%;
+	position: relative;
+	height: 85%;
+	width: 85%;
+}
+#middle{
+	height: 2.78vw;
+	background-color: 8DCEFF;
+}
+#bottom{
+	background-color: C7E7FF;
+	height: 6.51vw;
+}
+.navigation{
+	background-color: white;
+	line-height: 2.08vw;
+	width: 6.39vw;
+	margin: 0.1735vw;
+	font-size: 0.972vw;
+	text-align: center;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+#box{
+	background-color: white;
+	height: 4.51vw;
+	line-height: 4.51vw;
+	width: 33.263vw;
+	font-size: 1.67vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+input{
+	background-color: lightgrey;
+	width: 22vw;
+	height: 1.81vw;
+	font-size: 1.67vw;
+	margin-left: 0.694vw;
+}
+#promote{
+	background-color: C7E7FF;
+	width: 6.8vw;
+	height: 1.81vw;
+	line-height: 1.81vw;
+	margin-left: 0.694vw;
+	text-align: center;
+	box-shadow: 0.28vw 0.28vw 0.28vw rgba(0, 0, 0, .2);
+}
+</style>
+
+<body>
+
+<div class="container" id="top-container">
+	<a href="manager.html">
+		<div id="logo" tabindex="0">
+			<img src="princeLogo.jpg"></img>
+		</div>
+	</a>
+	<div id="title">
+		<a href="employees.html">
+			<p id="subject" tabindex="1">Employees</p>
+		</a>
+		<p>Grant Manager Access</p>
+	</div>
+	<div id="nav">
+		<a href="manager.html">
+			<div id="home" tabindex="2">
+				Home
+			</div>
+		</a>
+		<a href="home.html">
+			<div id="logout" tabindex="3">
+				Log Out
+			</div>
+		</a>
+	</div>
+</div>
+
+<div class="container" id="middle">
+	<a href="products.html">
+		<div class="navigation" tabindex="4">
+			Products
+		</div>
+	</a>
+	<a href="customers.html">
+		<div class="navigation" tabindex="5">
+			Customers
+		</div>
+	</a>
+	<a href="aisles.html">
+		<div class="navigation" tabindex="6">
+			Aisles
+		</div>
+	</a>
+	<a href="transactions.html">
+		<div class="navigation" tabindex="7">
+			Transactions
+		</div>
+	</a>
+	<a href="suppliers.html">
+		<div class="navigation" tabindex="8">
+			Suppliers
+		</div>
+	</a>
+</div>
+
+<div class="container" id="bottom">
+	<div id="box">
+		<input placeholder="Employee Name" tabindex="9"></input>
+		<div id="promote" tabindex="10">Promote</div>
+	</div>
+</div>
+
+</body>
