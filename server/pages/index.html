@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<style>
+#welcome-page{
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+}
+#register-form{
+	visibility: hidden;
+}
+#login{
+	text-align: center;
+}
+.text-box{
+	display: inline-block;
+}
+.btn{
+	text-shadow: 1px 1px 1px #8C8B8B;
+	box-shadow:1px 1px 1px #666666;
+}
+</style>
+
+<div id="welcome-page">
+	<h1>Welcome to the Database Management System</h1>
+	<div id="login">
+		<form id="login" action="/login" method="POST">
+			<div class="text-box">
+				<label for="username">Username:</label>
+				<input type="text" placeholder="Username" name="username"/>
+			</div>
+			<div class="text-box">
+				<label for="password">Password:</label>				
+				<input type="password" placeholder="Password" name="password">
+			</div>
+			<button class="btn">Submit</button>
+		</form>
+	</div>
+	<hr>
+
+	<div id="register">
+		<button class="btn" onclick="makeRegistrationVisible()">Create New Account</button>
+	</div>
+	<div id="register-form">
+		Register
+		<form action="/register" method="POST">
+			<div>
+				<label for="new-user">Username</label>
+				<input type="text" placeholder="Username" name="newUser"/>
+			</div>
+			<div>
+				<label for="new-password">Password</label>				
+				<input type="password" placeholder="Password" name="newPassword"/>
+			</div>
+			<button>Submit</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	var logIn = document.getElementById('login');
+	var registerButton = document.getElementById('register');
+	var registerForm = document.getElementById('register-form');
+
+	function makeRegistrationVisible() {
+		logIn.style.visibility = 'hidden';
+		registerButton.style.visibility = 'hidden';
+		registerForm.style.visibility = 'visible';
+	}
+</script>

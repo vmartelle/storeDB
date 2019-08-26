@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<style>
+#management{
+	text-align: center;
+}
+#employees-button2{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px;
+}
+#customers-button2{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px;
+}
+#aisles-button2{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px;
+}
+#products-button2{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px
+}
+#transactions-button2{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px;
+}
+#suppliers-button2{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px;
+}
+#results-area{
+	visibility: hidden;
+	position: absolute;
+	padding-left: 600px;
+	padding-top: 25px;
+}
+#top-nav{
+	border: 2px solid;
+	padding: 10px;
+	margin-left: 600px;
+	margin-right: 600px;
+	background-color: grey;
+}
+#home-reset{
+	text-align: center;
+	margin-top: 75vh;
+}
+</style>
+
+<div id="management">
+<h1> Management </h1>
+
+<div id="top-nav">
+<button id="employees-button" onclick="makeEmployeeVisible()">Employees</button>
+<button id="customers-button" onclick="makeCustomerVisible()">Customers</button>
+<button id="aisles-button" onclick="makeAisleVisible()">Aisles</button>
+<button id="products-button" onclick="makeProductVisible()">Products</button>
+<button id="transactions-button" onclick="makeTransactionVisible()">Transactions</button>
+<button id="suppliers-button" onclick="makeSupplierVisible()">Suppliers</button>
+</div>
+
+<div>
+<div id="employees-button2">
+	<button onclick="getWageInfo()">Wage Info</button>
+	<button onclick="getEmployeeStocks()">Aisle stock info</button>
+	<button onclick="getManagerAisle()">Manager's Employee Aisles</button>
+	<button onclick="promoteUser()">Grant Manager Access</button>
+</div>
+
+<div id="customers-button2">
+	Insert Customer
+	<form action="/insert_customer" method="POST">
+		<input placeholder="Customer ID" name="create_customer_id"/>
+		<input placeholder="First Name" name="create_customer_fname"/>
+		<input placeholder="Last Name" name="create_customer_lname"/>
+		<input placeholder="Address" name="create_customer_address"/>
+		<button>Submit</button>
+	</form>
+</div>
+
+<div id="aisles-button2">
+	Insert Aisle info
+	<form action="/insert_aisle" method="POST">
+		<input placeholder="Item" name="create_aisle_item"/>
+		<button>Submit</button>
+	</form>
+</div>
+
+<div id="products-button2">	
+	<button onclick="getProductAisles()">Show Aisles</button>
+	<button onclick="getStockInfo()">Product stocking info</button>
+</div>
+
+<div id="transactions-button2">
+	<button onclick="getCustomerTransactions()">Customer Transaction History</button>
+	<button onclick="getEmployeeTransactions()">Employee Transaction Handling</button>
+	<button onclick="getTransactionsOnDate()">Transactions on Date</button>
+	<button onclick="getTransactionsPerDay()">Transactions per Day</button>
+</div>
+
+<div id="suppliers-button2">
+	<button onclick="getSupplierCount()">Supplier Count</button>
+	<button onclick="getSupplierShipped()">Products Shipped</button>
+	<button onclick="getOrdersFrom()">Employee Orders</button>
+</div>
+
+<div id="results-area">
+<table id="results-table"></table>
+</div>
+
+</div>
+
+</div>
+
+<div id="home-reset">
+<a href="/"><button>Home</button></a>
+<a href="/manager"><button>Reset this page</button></a>
+</div>
+
+<script>
+var resultsArea = document.getElementById('results-area');
+var tableArea = document.getElementById('results-table');
+var elemID = ['employees-button2', 'customers-button2', 'aisles-button2',
+	'products-button2',	'transactions-button2', 'suppliers-button2'];
+
+function clearResults() {
+	resultsArea.style.visibility = 'hidden';
+	tableArea.innerHTML = '';
+}
+
+function makeElementVisible(eID) {
+	clearResults();
+	for (i = 0; i < elemID.length; i++){
+		if (elemID[i] !== eID) {
+			var temp = document.getElementById(elemID[i]);
+			temp.style.visibility='hidden';
+		}
+		else {
+			var elem = document.getElementById(elemID[i]);
+			elem.style.visibility='visible';
+		}
+	}
+}
+
+function makeEmployeeVisible() {
+	makeElementVisible('employees-button2');
+}
+
+function makeCustomerVisible() {
+	makeElementVisible('customers-button2');
+}
+
+function makeAisleVisible() {
+	makeElementVisible('aisles-button2');
+}
+
+function makeProductVisible() {
+	makeElementVisible('products-button2');
+}
+
+function makeTransactionVisible() {
+	makeElementVisible('transactions-button2');
+}
+
+function makeSupplierVisible() {
+	makeElementVisible('suppliers-button2');
+}
+
+function createTable(inArray) {
+	if (inArray.length > 0) {
+		resultsArea.style.visibility = 'visible';
+		var head = tableArea.insertRow();
+		for (var prop in inArray[0]) {
+			head.innerHTML += '<td>' + prop + '</td>';
+		}
+		for(i = 0; i < inArray.length; i++){
+			var newRow = tableArea.insertRow();
+			for (var prop in inArray[i]) {
+				newRow.innerHTML += '<td>' + inArray[i][prop] + '</td>';
+			}
+		}
+	}
+}
+
+/*
+ * Function to activate a route on the node server for making SQL SELECT queries.
+ * The expected outcome is to create a table from the SQL query results.
+ */
+function getRequest(route) {
+	var ourRequest = new XMLHttpRequest();
+
+	if (!ourRequest) {
+    	alert('Giving up :( Cannot create an XMLHTTP instance');
+    	return false;
+    }
+    ourRequest.onreadystatechange = function() {
+    	if (ourRequest.readyState === XMLHttpRequest.DONE) {
+		    if (ourRequest.status === 200) {
+		    	var resultArray = JSON.parse(ourRequest.responseText);  // Parses JSON array back to JS array
+		    	createTable(resultArray);
+		    }
+		    else {
+		      	alert('There was a problem with the request.');
+		    }
+		}
+    };
+    ourRequest.open('GET', route);
+	ourRequest.send();
+}
+
+function getProductAisles() {
+	var url = '/product_aisles';
+	document.getElementById('products-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getStockInfo() {
+	var input = prompt('Enter Product Name:');
+	var url = '/stock_info/' + input;
+	document.getElementById('products-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getManagerAisle() {
+	var iFName = prompt('Enter Manager\'s First Name:');
+	var iLName = prompt('Enter Manager\'s Last Name:');
+	var url = '/manager_aisle/' + iFName + '/' + iLName;
+	document.getElementById('employees-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getTransactionsOnDate() {
+	var iDate = prompt('Enter a date (YYYY-MM-DD):');
+	var url = '/transactions_on_date/' + iDate;
+	document.getElementById('transactions-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getEmployeeStocks() {
+	var url = '/employee_stocks';
+	document.getElementById('employees-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getEmployeeTransactions() {
+	var url = '/employee_transactions';
+	document.getElementById('transactions-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getCustomerTransactions() {
+	var url = '/customer_transactions';
+	document.getElementById('transactions-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getWageInfo() {
+	var url = '/wage_info';
+	document.getElementById('employees-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getTransactionsPerDay() {
+	var url = '/transactions_per_day';
+	document.getElementById('transactions-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getSupplierCount() {
+	var url = '/supplier_count';
+	document.getElementById('suppliers-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getSupplierShipped() {
+	var url = '/supplier_shipped';
+	document.getElementById('suppliers-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function getOrdersFrom() {
+	var url = '/orders_from';
+	document.getElementById('suppliers-button2').style.visibility = 'hidden';
+	getRequest(url);
+}
+
+function promoteUser() {
+	var input = prompt('Enter a user name:');
+	var url = '/promote_user/' + input;
+	document.getElementById('employees-button2').style.visibility = 'hidden';
+	getRequest(url);}
+</script>
